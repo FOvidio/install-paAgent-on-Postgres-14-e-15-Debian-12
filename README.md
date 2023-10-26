@@ -19,7 +19,7 @@ Devemos criar este aquivo no usuário postgres para que o arquivo fique em $HOME
 
 ```
 sudo su - postgres
-echo localhost:5432:*:pgagent:securepassword >> ~/.pgpass
+echo localhost:5432:*:pgagent:senha_do_banco >> ~/.pgpass
 chmod 600 ~/.pgpass
 chown postgres:postgres /var/lib/postgresql/.pgpass
 ```
