@@ -81,7 +81,7 @@ LOGFILE="/var/log/pgagent/pgagent.log"
 ```
 
 #### Lidando com o Systemd
-6. Crie o arquivo pgagente.service:
+6. Crie o arquivo pgagent.service:
 
 sudo nano /usr/lib/systemd/system/pgagent.service
 ```
