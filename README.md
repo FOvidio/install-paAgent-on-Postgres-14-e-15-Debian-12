@@ -1,7 +1,8 @@
 # install-paAgent-on-Postgres-14-e-15-Debian-12
 install paAgent on Postgres 14, 15 Debian 12
 
-Para instalação na mesma maquina onde se encontra o banco de dados
+Para instalação na mesma maquina onde se encontra o banco de dados.
+No tutorial abaixo considero que o pgAdmin esta instalado no servidor juntamente com o banco de dados.
 
 
 ## Terminal
@@ -19,14 +20,14 @@ Devemos criar este aquivo no usuário postgres para que o arquivo fique em $HOME
 
 ```
 sudo su - postgres
-echo localhost:5432:*:pgagent:senha_do_banco >> ~/.pgpass
+echo localhost:5432:*:postgres:senha_do_banco >> ~/.pgpass
 chmod 600 ~/.pgpass
 chown postgres:postgres /var/lib/postgresql/.pgpass
 ```
 
 3. Criando o diretório de log
 
-Criando o diretório de log
+No terminal execute como root:
 ```bash
 mkdir /var/log/pgagent
 chown -R postgres:postgres /var/log/pgagent
@@ -35,17 +36,20 @@ chmod g+w /var/log/pgagent
 
 
 ### Testando
-4. Test pgAgent connections
+4. Testando as conexões pgAgent
 
 Em um terminal separado, `tail -f /var/log/postgresql/postgresql-10-main.log` para ver os logs do pgagent gravados
 
 #### Conexão com o Postgres
 Testando a conexão com o banco de dados
 ```bash
-psql -h localhost -d yourdatabase -U pgagent
+psql -h localhost -d postgres -U pgagent
 ```
 
 #### pgAgent
+Para executar o pgagent é preciso habilitar sua extensão, execute no pgadmin conectado ao banco postgres:
+CREATE EXTENSION pgagent;
+
 ```bash
 sudo su - postgres
 /usr/bin/pgagent -f -l 2 host=localhost port=5432 user=pgagent dbname=postgres
@@ -69,8 +73,8 @@ LOGLEVEL=1
 LOGFILE="/var/log/pgagent/pgagent.log"
 ```
 
-#### Lidando com o Systemd ;)
-6. Crie o arquivo pgagente.service
+#### Lidando com o Systemd
+6. Crie o arquivo pgagente.service:
 
 sudo nano /usr/lib/systemd/system/pgagent.service
 ```
