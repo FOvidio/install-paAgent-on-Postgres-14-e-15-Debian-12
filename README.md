@@ -52,7 +52,7 @@ Para executar o pgagent é preciso habilitar sua extensão, execute no pgadmin c
 ```bash
 sudo -i -u postgres
 psql
-CREATE EXTENSION pgagent;
+CREATE EXTENSION pgagent
 ```
 
 #### pgAgent Logs
