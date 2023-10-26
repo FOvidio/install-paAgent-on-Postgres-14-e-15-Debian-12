@@ -155,5 +155,5 @@ logrotate -f /etc/logrotate.d/pgagent
 ````
 
 ### Fonte ###
-- [pgAgent Install Documentation](https://www.pgadmin.org/docs/pgadmin4/dev/pgagent_install.html)
+- [pgAgent Install Documentation]([https://www.pgadmin.org/docs/pgadmin4/dev/pgagent_install.html](https://www.pgadmin.org/docs/pgadmin4/2.1/pgagent_install.html)https://www.pgadmin.org/docs/pgadmin4/2.1/pgagent_install.html)
 
