@@ -38,7 +38,7 @@ chmod g+w /var/log/pgagent
 ### Testando
 4. Testando as conexões pgAgent
 
-Em um terminal separado, `tail -f /var/log/postgresql/postgresql-10-main.log` para ver os logs do pgagent gravados
+Em um terminal separado, `tail -f /var/log/postgresql/postgresql-15-main.log` para ver os logs do pgagent gravados
 
 #### Conexão com o Postgres
 Testando a conexão com o banco de dados
@@ -46,13 +46,20 @@ Testando a conexão com o banco de dados
 psql -h localhost -d postgres -U pgagent
 ```
 
-#### pgAgent
+#### pgAgent Extensão
 Para executar o pgagent é preciso habilitar sua extensão, execute no pgadmin conectado ao banco postgres:
+
+```bash
+sudo -i -u postgres
+psql
 CREATE EXTENSION pgagent;
+```
+
+#### pgAgent Logs
 
 ```bash
 sudo su - postgres
-/usr/bin/pgagent -f -l 2 host=localhost port=5432 user=pgagent dbname=postgres
+/usr/bin/pgagent -f -l 2 host=localhost port=5432 user=postgres dbname=postgres
 ```
 Revise os logs e observe se existe alguma mensagem de erro.
 
