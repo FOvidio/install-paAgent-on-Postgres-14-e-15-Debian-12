@@ -154,6 +154,6 @@ Teste a rotação dos logs com o comando:
 logrotate -f /etc/logrotate.d/pgagent
 ````
 
-### Source ###
+### Fonte ###
 - [pgAgent Install Documentation](https://www.pgadmin.org/docs/pgadmin4/dev/pgagent_install.html)
-- http://www.ekho.name/2012/03/pgagent-debianubuntu.html / https://gist.github.com/ekho/6636393
+
